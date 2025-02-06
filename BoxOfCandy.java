@@ -31,8 +31,27 @@ public class BoxOfCandy
     * Removes from box and returns a piece of candy with flavor specified by the parameter, or
     * returns null if no such piece is found, as described in part (b)
     */
- //   public Candy removeNextByFlavor(String flavor)
-    { /* to be implemented in part (b) */ }
+    public Candy removeNextByFlavor(String flavor)
+    { 
+        Candy picked = new Candy("selecting");
+        for(int row = box.length - 1; row >= 0; row--)
+        {
+            for(int col = 0; col < box[0].length; col ++)
+            {
+               if(box[row][col] != null)
+               {
+                if(box[row][col].getFlavor().equals(flavor))
+                {
+                picked = box[row][col];
+                box[row][col] = null;
+                return picked;
+                }
+               }
+            }
+            
+        }
+        return null;
+    }
 
     public String toString()
     {
